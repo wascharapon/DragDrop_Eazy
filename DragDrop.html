@@ -1,0 +1,25 @@
+1.include
+<link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+{{-- <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script> --}}
+<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+{{-- <link rel="stylesheet" href="jqueryui/style.css"> --}}
+
+2.css
+  /* #sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; } */
+  /* #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em;  } */
+  /* #sortable li span { position: absolute; margin-left: -1.3em; } */
+
+3.command function 
+function order_route() {
+    setTimeout(() => {
+        $("#sortable").sortable();
+        $("#sortable").disableSelection();
+        $("#sortable").sortable({
+            stop: function () {
+                $.each($(".order_route"), function (order_route, element) {
+                    $(element).html(order_route + 1);
+                });
+            }
+        });
+    }, 1500);
+}
